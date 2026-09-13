@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Baloo 2", system-ui, sans-serif;
+  --font-body: "Nunito", system-ui, sans-serif;
+}
+
+body {
+  background-color: #FFF8EC;
+  background-image:
+    radial-gradient(circle at 10% 10%, rgba(124,92,255,0.08) 0, transparent 40%),
+    radial-gradient(circle at 90% 20%, rgba(255,111,165,0.08) 0, transparent 40%),
+    radial-gradient(circle at 50% 90%, rgba(61,220,151,0.08) 0, transparent 40%);
+  color: #2B2440;
+}
+
+.game-card {
+  @apply rounded-blob border-4 border-ink bg-white shadow-chunky;
+}
+
+.game-btn {
+  @apply rounded-2xl border-4 border-ink bg-mango px-4 py-2 font-display text-lg text-ink shadow-chunky-sm transition-transform active:translate-y-1 active:shadow-none;
+}
+
+.game-btn:hover {
+  transform: translateY(-2px);
+}
+
+.progress-track {
+  @apply h-3 w-full overflow-hidden rounded-full border-2 border-ink bg-white;
+}
+
+.progress-fill {
+  @apply h-full rounded-full transition-all duration-500;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
