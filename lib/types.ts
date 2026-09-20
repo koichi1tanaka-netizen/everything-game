@@ -83,7 +83,6 @@ export interface GameState {
   bestMemoryMoves: number | null;
   bestMathScore: number | null;
   bestTriviaCorrect: number | null;
-  bestTypingScore: number | null;
   missionProgress: Record<string, number>;
   completedMissions: string[];
   unlockedAchievements: string[];
