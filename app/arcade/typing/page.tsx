@@ -38,7 +38,7 @@ export default function TypingGamePage() {
   const addXp = useGameStore((s) => s.addXp);
   const recordGamePlayed = useGameStore((s) => s.recordGamePlayed);
   const recordTypingScore = useGameStore((s) => s.recordTypingScore);
-  const bestTypingScore = useGameStore((s) => s.bestTypingScore);
+  const bestTypingWpm = useGameStore((s) => s.bestTypingWpm);
   const pushToast = useGameStore((s) => s.pushToast);
 
   useEffect(() => () => {
@@ -101,7 +101,7 @@ export default function TypingGamePage() {
           <h1 className="font-display text-2xl font-extrabold">⌨️ Typing Test</h1>
         </div>
 
-        {bestTypingScore !== null && <p className="text-sm font-bold text-ink/70">Best: {bestTypingScore} words</p>}
+        {bestTypingWpm !== null && <p className="text-sm font-bold text-ink/70">Best: {bestTypingWpm} words</p>}
 
         {phase === "idle" && (
           <div className="game-card flex flex-col items-center gap-3 p-8 text-center">

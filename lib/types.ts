@@ -87,4 +87,5 @@ export interface GameState {
   missionProgress: Record<string, number>;
   completedMissions: string[];
   unlockedAchievements: string[];
+  bestTypingWpm: number | null;
 }

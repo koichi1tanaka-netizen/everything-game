@@ -18,6 +18,7 @@ interface GameActions {
   recordMemoryScore: (moves: number) => void;
   recordMathScore: (score: number) => void;
   recordTriviaScore: (correct: number) => void;
+  recordTypingScore: (wpm: number) => void;
   toast: string | null;
   pushToast: (message: string) => void;
   clearToast: () => void;
@@ -55,6 +56,7 @@ const initialState: GameState = {
   bestMemoryMoves: null,
   bestMathScore: null,
   bestTriviaCorrect: null,
+  bestTypingWpm: null,
   missionProgress: {},
   completedMissions: [],
   unlockedAchievements: [],
@@ -275,13 +277,17 @@ export const useGameStore = create<GameState & GameActions>()(
           set({ bestTriviaCorrect: correct });
         }
       },
-      recordTypingScore: (score) => {
+
+      recordTypingScore: (wpm) => {
         const state = get();
-        if (state.bestTypingScore === null || score > state.bestTypingScore) {
-          set({ bestTypingScore: score });
+        if (state.bestTypingWpm === null || wpm > state.bestTypingWpm) {
+          set({ bestTypingWpm: wpm });
         }
       },
+
       resetGame: () => set({ ...initialState, toast: null, newlyUnlockedAchievements: [] }),
+
+      hydrateFromSave: (data) => set({ ...data }),
     }),
     {
       name: "everything-game-save",
