@@ -23,7 +23,7 @@ export default function ProfilePage() {
     bestMemoryMoves,
     bestMathScore,
     bestTriviaCorrect,
-    bestTypingScore,
+    bestTypingWpm,
     resetGame,
   } = useGameStore();
 
@@ -60,7 +60,7 @@ export default function ProfilePage() {
           {bestMemoryMoves !== null && <Stat label="Best memory" value={`${bestMemoryMoves} moves`} />}
           {bestMathScore !== null && <Stat label="Best math" value={bestMathScore} />}
           {bestTriviaCorrect !== null && <Stat label="Best trivia" value={`${bestTriviaCorrect}/10`} />}
-          {bestTypingScore !== null && <Stat label="Best typing" value={`${bestTypingScore} words`} />}
+          {bestTypingWpm !== null && <Stat label="Best typing" value={`${bestTypingWpm} words`} />}
         </div>
 
         <button
